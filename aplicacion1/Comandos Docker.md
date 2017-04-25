@@ -43,3 +43,20 @@ Para levantar docker con mysql utilizamos
 ```
 >> docker run --name adrian -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=adrian -e MYSQL_USER=adrian -e MYSQL_PASSWORD=123456 -p 3306:3306 -d mysql
 ```
+### --name adrian
+Es el nombre del contenedor
+
+### -e MYSQL_ROOT_PASSWORD=123456
+Es la clave de root
+
+### -e MYSQL_DATABASE=adrian
+Es el nombre de la base de datos
+
+### -e MYSQL_USER=adrian 
+Es el nombre de usuario
+### -e MYSQL_PASSWORD=123456
+ Es la clave del usuario
+###-p 3306:3306
+ - Es el puerto asignado al contenedor **direccionado** (el de la derecha es del **host**)
+ - El puerto de la izquierda es el puerto del **contenedor**
+
