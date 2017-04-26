@@ -56,7 +56,7 @@ Es el nombre de la base de datos
 Es el nombre de usuario
 ### -e MYSQL_PASSWORD=123456
  Es la clave del usuario
-###-p 3306:3306
+### -p 3306:3306
  - Es el puerto asignado al contenedor **direccionado** (el de la derecha es del **host**)
  - El puerto de la izquierda es el puerto del **contenedor**
 
@@ -64,5 +64,9 @@ Es el nombre de usuario
 
 ```
 >> docker run --name postgresadrian -e POSTGRES_PASSWORD=123456 -e POSTGRES_USER=adrian -e POSTGRES_DB=politecnica -p 5432:5432 -d postgres
+```
+## MongoDB
+```
+>> docker run --name adrianmongo -p 27017:27017 -d mongo
 ```
 
