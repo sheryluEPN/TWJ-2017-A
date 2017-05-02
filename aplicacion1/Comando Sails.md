@@ -19,3 +19,9 @@ Es el comando usado para levantar la aplicación por línea de comando [CLI](htt
 Se debe tomar en cuenta
 * En la terminal estar dentro de la carpeta del proyecto.
 
+## sails generate api
+
+```
+>> sails generate api nombredelmodelo
+```
+Crea el modelo en la aplicación
