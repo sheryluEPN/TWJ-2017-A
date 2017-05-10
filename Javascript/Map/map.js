@@ -21,3 +21,4 @@ valor.anio = valor.fechacreado.getFullYear();
 return valor;
 });
 console.log(resultado2);
+
