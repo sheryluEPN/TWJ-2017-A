@@ -20,5 +20,11 @@ function myforeach(arreglo, funcion){
         funcion(i, arreglo[i], arreglo);
     }
 }
-myforeach(elementos, (indice, valor)=> {
+foreach(elementos, (indice, valor)=> {
     console.log('este es un indice:'+indice+' este es el valor:'+valor)});
+
+
+
+
+
+
