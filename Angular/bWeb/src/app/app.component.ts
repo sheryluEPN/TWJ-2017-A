@@ -10,6 +10,8 @@ usuario: UsuarioInt ={
   nombre: "unnombre",
   apellido: "unapellido"
 }
+url: string = "http://coffeescript.org/";
+url2: string = "https://pbs.twimg.com/profile_images/557241144392708096/slQydAMv.png";
 constructor(){
   console.log("Constructor");
   this.holamundo();
