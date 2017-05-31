@@ -2,10 +2,11 @@
   <h1 class="display-2">Bienvenidos</h1>
   <h2>Usuarios Conectados</h2>
   <div class="row">
-  <div class="col-sm-4" *ngFor="let usuario of arregloUsr">
-    <div class="card" style="width: 20rem; width: 100%; height: 100%">
+  <div  *ngFor="let usuario of arregloUsr">
+    <div class="col-sm-4" *ngIf="usuario.conectado">
+    <div class="card" style="width: 20rem">
       <div class="card-block">
-        <h4 class="card-title">{{usuario.nombre}}</h4>
+        <h4 class="card-title">{{usuario.nombre}}-{{usuario.conectado}}</h4>
         <p class="card-text">{{usuario.nombre}} {{usuario.apellido}}</p>
         <a href="#" class="btn btn-primary btn-block">Revisar Perfil</a>
       </div>
@@ -13,13 +14,39 @@
   </div>
 </div>
 </div>
-
-<div>
+</div>
+<div class="row">
+  <div style="align-content: center" class="col-md-6">
+    <h2>Peliculas</h2>
+    <br>
+    <button (click)="cargarBatman()" class="btn-group-lg">Peliculas de Batman</button>
+  </div>
+</div>
+<div class="row">
+  <ul>
+    <li *ngFor="let pelis of peliculas" >{{pelis.original_title}}</li>
+  </ul>
+</div>
+<!--<div>
   <ul>
     <li *ngFor="let usuario of arregloUsr">{{usuario.nombre}}</li>
   </ul>
 
 </div>
+<div>
+  <p *ngIf="undefined">Este es verdadero 1</p>
+  <p *ngIf="null">Este es falso 1</p>
+</div>
+
+<div>
+  <p *ngIf="(2+2)==4">Este es verdadero 2</p>
+  <p *ngIf="(2+2)!=4">Este es falso 2</p>
+</div>
+
+<div>
+  <p *ngIf="0">Este es verdadero 3</p>
+  <p *ngIf="nombre">Este es falso 3</p>
+</div>-->
 
 <!--<div class="container">
   <input type="text" class="align-self-sm-auto" [value]="nombre" #nombreEtiqueta>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Http} from "@angular/http";
+import 'rxjs/add/operator/map'
 
 @Component({
   selector: 'app-inicio',
@@ -10,15 +12,18 @@ export class InicioComponent implements OnInit {
   nombre: string = "nombresito";
   arregloUsr=[{
     nombre:"nombrecito1",
-    apellido:"apellidito1"
+    apellido:"apellidito1",
+    conectado: true
   },
     {
       nombre:"nombrecito2",
-      apellido:"apellidito2"
+      apellido:"apellidito2",
+      conectado: false
     },
     {
       nombre:"nombrecito3",
-      apellido:"apellidito3"
+      apellido:"apellidito3",
+      conectado: true
     }];
   cambiarNombre(){
     this.nombre="otro nombresito";
@@ -33,9 +38,30 @@ export class InicioComponent implements OnInit {
   console.log(nombreEtiqueta.value);
     this.nombre= nombreEtiqueta.value;
 }
-  constructor() { }
+  peliculas=[{}];
+  constructor(private _http:Http) {
+    // Inicia la clase pero el componente no esta listo
+  }
 
   ngOnInit() {
+    //Esta listo el componente
+  }
+  cargarBatman(){
+    this._http.get("https://api.themoviedb.org/3/search/movie?api_key=afb1e0f512ed29f413f9333f4f87a77a&language=en-US&query=Batman&page=1&include_adult=false")
+      //.map(response=>response.json())
+      .subscribe(
+        (response)=>{
+          console.log("Response:", response.json());
+          let respuesta= response.json();
+          this.peliculas=(respuesta.results);
+        },
+        (error)=>{
+          console.log("Error:", error);
+        },
+        ()=>{
+          console.log("finally");
+        }
+      )//3 funciones como parametros 1 como try, 2 catch, 3 finally
   }
 
 }
