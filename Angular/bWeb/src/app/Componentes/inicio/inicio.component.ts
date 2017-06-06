@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map'
+import {PeliculitasInterface} from "../../Interfaces/PeliculasBatman";
 
 @Component({
   selector: 'app-inicio',
@@ -38,7 +39,7 @@ export class InicioComponent implements OnInit {
   console.log(nombreEtiqueta.value);
     this.nombre= nombreEtiqueta.value;
 }
-  peliculas=[{}];
+  peliculas: PeliculitasInterface[];
   constructor(private _http:Http) {
     // Inicia la clase pero el componente no esta listo
   }
@@ -54,6 +55,12 @@ export class InicioComponent implements OnInit {
           console.log("Response:", response.json());
           let respuesta= response.json();
           this.peliculas=(respuesta.results);
+          this.peliculas=this.peliculas.map(
+            (valor,indice,arreglo)=>{
+              valor.imagenURL ="/assets/Imagenes/"+valor.title+'.jpg';
+              return valor;
+            }
+          )
         },
         (error)=>{
           console.log("Error:", error);
@@ -64,4 +71,6 @@ export class InicioComponent implements OnInit {
       )//3 funciones como parametros 1 como try, 2 catch, 3 finally
   }
 
+
 }
+

@@ -27,6 +27,71 @@
     <li *ngFor="let pelis of peliculas" >{{pelis.original_title}}</li>
   </ul>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let pelis of peliculas; let i= index">
+      <app-pelicula-batman [pelicula]="pelis" ></app-pelicula-batman>
+    </div>
+  </div>
+</div>
+<!--<div class="container">
+  <div class="row">
+  <div *ngFor="let pelis of peliculas">
+  <div class="col-sm-4">
+    <div class="card card-inverse text-center">
+
+      &lt;!&ndash; Image &ndash;&gt;
+      <img class="card-img-top" style="max-height: 70%; max-width: 90%" [src]="'https://image.tmdb.org/t/p/w1280/'+pelis.poster_path" alt="Photo of sunset">
+
+      &lt;!&ndash; Text Overlay &ndash;&gt;
+      <div class="card-block">
+        <table class="table table-inverse table-bordered">
+          <tbody>
+          <tr>
+            <td>Release date:</td>
+            <td>{{pelis.release_date}}</td>
+          </tr>
+          <tr>
+            <td>Original title:</td>
+            <td>{{pelis.original_title}}</td>
+          </tr>
+          <tr>
+            <td>Original Language:</td>
+            <td>{{pelis.original_language}}</td>
+          </tr>
+          <tr>
+            <td>Popularity:</td>
+            <td>{{pelis.popularity}}</td>
+          </tr>
+          <tr>
+            <td>Vote count:</td>
+            <td>{{pelis.vote_count}}</td>
+          </tr>
+          <tr>
+            <td>Overview:</td>
+            <td>
+              <p>{{pelis.overview}}</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Generos:</td>
+            <td>
+              <ul>
+                <li *ngFor="let generos of pelis.genre_ids">{{generos}}</li>
+              </ul>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+</div>
+</div>-->
 <!--<div>
   <ul>
     <li *ngFor="let usuario of arregloUsr">{{usuario.nombre}}</li>
