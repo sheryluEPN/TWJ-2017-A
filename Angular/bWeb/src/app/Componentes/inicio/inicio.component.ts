@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map'
 import {PeliculitasInterface} from "../../Interfaces/PeliculasBatman";
+import {Usuarioclase} from "../../Clases/UsuarioClase";
 
 @Component({
   selector: 'app-inicio',
@@ -10,7 +11,9 @@ import {PeliculitasInterface} from "../../Interfaces/PeliculasBatman";
 })
 export class InicioComponent implements OnInit {
 
+  usuarios: Usuarioclase[]=[];
   nombre: string = "nombresito";
+  nuevoUsuario: Usuarioclase = new Usuarioclase("");
   arregloUsr=[{
     nombre:"nombrecito1",
     apellido:"apellidito1",
@@ -45,7 +48,28 @@ export class InicioComponent implements OnInit {
   }
 
   ngOnInit() {
+
     //Esta listo el componente
+    this._http.get("http://localhost:1337/usuario").subscribe(respuesta=>{
+      let rJson = respuesta.json();
+      console.log("respuesta json:", rJson);
+
+    }, error=>{
+      console.log("error: ", error);
+    });
+  }
+  crearUsuario(){
+    console.log("ESTO ES CREAR USUARIO");
+
+    let usuario:Usuarioclase={
+      nombre:this.nuevoUsuario.nombre
+    };
+    this._http.post("http://localhost:1337/usuario", usuario).subscribe(respuesta=>{
+      let respuestaJson = respuesta.json();
+      console.log("respuesta json:", respuestaJson);
+    }, error=>{
+      console.log("error: ", error);
+    });
   }
   cargarBatman(){
     this._http.get("https://api.themoviedb.org/3/search/movie?api_key=afb1e0f512ed29f413f9333f4f87a77a&language=en-US&query=Batman&page=1&include_adult=false")
@@ -73,4 +97,6 @@ export class InicioComponent implements OnInit {
 
 
 }
+
+
 
