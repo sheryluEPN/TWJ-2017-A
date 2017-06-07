@@ -17,4 +17,5 @@ export class PeliculaBatmanComponent implements OnInit {
   }
 
 //este es un commit
+  //este es otro commit
 }
