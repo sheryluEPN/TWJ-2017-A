@@ -16,5 +16,5 @@ export class PeliculaBatmanComponent implements OnInit {
     console.log(`el valor de la pelicula es:`,this.pelicula);
   }
 
-
+//este es un commit
 }
