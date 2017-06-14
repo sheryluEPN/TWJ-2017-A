@@ -68,6 +68,7 @@ export class InicioComponent implements OnInit {
     this._http.post("http://localhost:1337/usuario", usuario).subscribe(respuesta=>{
       let respuestaJson = respuesta.json();
       console.log("respuesta json:", respuestaJson);
+      this.actualizarUsuario();
     }, error=>{
       console.log("error: ", error);
     });
@@ -88,6 +89,7 @@ export class InicioComponent implements OnInit {
     this._http.delete("http://localhost:1337/usuario/"+id).subscribe(respuesta=>{
       let rJson = respuesta.json();
       console.log("respuesta json:", rJson);
+      this.actualizarUsuario();
 
     }, error=>{
       console.log("error: ", error);

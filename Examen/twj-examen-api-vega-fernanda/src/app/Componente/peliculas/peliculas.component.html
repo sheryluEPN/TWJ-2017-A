@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    Votos: {{pelicula.vote_count}}
+  </div>
+  <img class="card-img-top img-fluid" style="max-height: 70%; max-width: 90%; margin: 0 auto;" [src]="'https://image.tmdb.org/t/p/w1280/'+ pelicula.poster_path">
+  <div class="card-block">
+    <h4 class="card-title">{{pelicula.title}}</h4>
+    <p class="card-text">{{pelicula.overview}}</p>
+  </div>
+  <div class="card-block">
+    Popularidad: {{pelicula.popularity}}
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<br>
+<br>
+<div class="container">
+<form>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Nombre</label>
+    <div class="col-sm-10">
+      <input class="form-control" name="nombre" placeholder="Nombre del agarre" [(ngModel)]="nuevoAgarre.nombre">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Veces</label>
+    <div class="col-sm-10">
+      <input type="number" name="veces" class="form-control" placeholder="veces" [(ngModel)]="nuevoAgarre.veces">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Dinero Gastado</label>
+    <div class="col-sm-10">
+      <input type="number" name="dinero" class="form-control" placeholder="dinero gastado en el agarre" [(ngModel)]="nuevoAgarre.dineroGastado">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="offset-sm-2 col-sm-10">
+      <button type="submit" class="btn btn-primary" (click)="crearAgarre()">Crear nuevo agarre</button>
+    </div>
+  </div>
+</form>
+</div>
+
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-md-6"><h4>
+    Estos son los items de la tabla Agarre
+  </h4></div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-lg-8">
+    <div class="card-deck" >
+      <app-agarre-componente *ngFor="let agarre of agarrelist" [agarre]="agarre"></app-agarre-componente>
+    </div>
+  </div>
+</div>
+
+
+<!--&lt;!&ndash;<div *ngIf="agarrelist.length>0">&ndash;&gt;-->
+<!--<table class="table table-bordered">-->
+  <!--<thead class="thead-inverse">-->
+  <!--<tr>-->
+    <!--<th>id</th>-->
+    <!--<th>Nombre Agarre</th>-->
+    <!--<th>Veces</th>-->
+    <!--<th>Dinero Gastado</th>-->
+    <!--<th>Creado en</th>-->
+    <!--<th>Actualizado en</th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody>-->
+  <!--<tr *ngFor="let agarre of agarrelist">-->
+    <!--<app-agarre-componente [agarre]="agarre"></app-agarre-componente>-->
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
