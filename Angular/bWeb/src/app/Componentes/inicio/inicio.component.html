@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 <div class="container">
   <h1 class="display-2">Bienvenidos</h1>
   <h2>Usuarios Conectados</h2>
@@ -31,17 +32,10 @@
 
 <div class="container">
   <h1 class="display-2">Bienvenidos</h1>
-  <h2>Usuarios Conectados</h2>
+  <h2>Usuarios del sistema</h2>
   <div class="row">
     <div  *ngFor="let usuario of usuarios; let i= index">
-      <div class="col-sm-4">
-        <div class="card" style="width: 20rem">
-          <div class="card-block">
-            <p class="card-text">{{usuario.nombre}} {{usuario.id}}</p>
-            <a href="#" class="btn btn-primary btn-block" (click)="eliminarUsuario(usuario.id)">Eliminar</a>
-          </div>
-        </div>
-      </div>
+      <app-usuario [usuario]="usuario" (usuarioborrado)="eliminarUsuario()"></app-usuario>
     </div>
   </div>
 </div>

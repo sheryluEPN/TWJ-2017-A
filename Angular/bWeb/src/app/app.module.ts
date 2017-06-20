@@ -13,6 +13,7 @@ import { PopularidadPeliculaComponent } from './Componentes/popularidad-pelicula
 import { DescripcionPeliculaComponent } from './Componentes/descripcion-pelicula/descripcion-pelicula.component';
 import { PosterPeliculaComponent } from './Componentes/poster-pelicula/poster-pelicula.component';
 import { VotosPeliculaComponent } from './Componentes/votos-pelicula/votos-pelicula.component';
+import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { VotosPeliculaComponent } from './Componentes/votos-pelicula/votos-pelic
     PopularidadPeliculaComponent,
     DescripcionPeliculaComponent,
     PosterPeliculaComponent,
-    VotosPeliculaComponent
+    VotosPeliculaComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,

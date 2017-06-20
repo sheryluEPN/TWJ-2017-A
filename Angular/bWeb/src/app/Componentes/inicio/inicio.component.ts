@@ -53,7 +53,12 @@ export class InicioComponent implements OnInit {
     this._http.get("http://localhost:1337/usuario").subscribe(respuesta=>{
       let rJson = respuesta.json();
       console.log("respuesta json:", rJson);
-      this.usuarios=rJson;
+      this.usuarios=rJson.map(
+        (usuario:Usuarioclase)=>{
+          usuario.editar=false;
+          return usuario;
+        }
+      );
 
     }, error=>{
       console.log("error: ", error);
@@ -85,16 +90,26 @@ export class InicioComponent implements OnInit {
       console.log("error: ", error);
     });
   }
-  eliminarUsuario(id){
-    this._http.delete("http://localhost:1337/usuario/"+id).subscribe(respuesta=>{
-      let rJson = respuesta.json();
-      console.log("respuesta json:", rJson);
-      this.actualizarUsuario();
+  eliminarUsuario(){
+
+    this.actualizarUsuario();
+  }
+  modificarUsuario(usuario:Usuarioclase, nuevo){
+    let actualizacion={
+      nombre: nuevo
+    };
+    console.log(nuevo);
+    this._http.put("http://localhost:1337/usuario/"+usuario.id, actualizacion).map((res)=>{
+      return res.json;
+    }).subscribe(respuesta=>{
+      console.log("se actualizo:", respuesta);
+      let indice= this.usuarios.indexOf(usuario);
+      this.usuarios[indice].nombre=nuevo;
+      this.usuarios[indice].editar=false;
 
     }, error=>{
       console.log("error: ", error);
     });
-    this.actualizarUsuario();
   }
   cargarBatman(){
     this._http.get("https://api.themoviedb.org/3/search/movie?api_key=afb1e0f512ed29f413f9333f4f87a77a&language=en-US&query=Batman&page=1&include_adult=false")

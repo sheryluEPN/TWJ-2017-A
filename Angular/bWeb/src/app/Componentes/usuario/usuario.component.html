@@ -1,0 +1,19 @@
+<div class="col-sm-4">
+  <div class="card" style="width: 20rem">
+    <div class="card-block">
+      <div *ngIf="!usuario.editar">
+        <p class="card-text">{{usuario.nombre}} {{usuario.id}}</p>
+        <h4>Editar Usuario</h4>
+        <a href="#" class="btn btn-warning btn-block " (click)="usuario.editar=!usuario.editar">Editar</a>
+      </div>
+      <div *ngIf="usuario.editar" class="animated bounceIn">
+        <input type="text" class="form-control" placeholder="nombre de usuario" #nuevoNombre>
+        <a href="#" class="btn btn-secondary btn-block" (click)="usuario.editar=!usuario.editar">Cancelar</a>
+        <a href="#" class="btn btn-danger btn-block" (click)="eliminarUsuario(usuario.id)">Eliminar</a>
+        <a href="#" class="btn btn-primary btn-block" (click)="modificarUsuario(usuario,nuevoNombre.value)">Actualizar</a>
+      </div>
+
+
+    </div>
+  </div>
+</div>
