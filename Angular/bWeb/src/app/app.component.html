@@ -2,7 +2,7 @@
   {{title}}
   {{noroot}}
 </h1>-->
-<h2>Esto no esta en un selector</h2>
+<!--<h2>Esto no esta en un selector</h2>
 <p>este es un peque parrafito <b>ESTO ESTA EN NEGRITAS</b></p>
 <h3>Habia una vez un usuario llamado {{saludar(usuario.nombre, usuario.apellido)}}</h3>
 
@@ -20,4 +20,23 @@
 
 <a [href]="url">
   <img [src]="url2">
-</a>
+</a>-->
+
+<h1>Holis</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a [routerLink]="['pagina2','idAlguito']" >Pagina2</a></li>
+      <li><a [routerLink]="['inicio']">Inicio</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+

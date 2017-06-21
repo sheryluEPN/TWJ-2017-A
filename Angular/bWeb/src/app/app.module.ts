@@ -14,6 +14,11 @@ import { DescripcionPeliculaComponent } from './Componentes/descripcion-pelicula
 import { PosterPeliculaComponent } from './Componentes/poster-pelicula/poster-pelicula.component';
 import { VotosPeliculaComponent } from './Componentes/votos-pelicula/votos-pelicula.component';
 import { UsuarioComponent } from './Componentes/usuario/usuario.component';
+import { Pagina2Component } from './Componentes/pagina2/pagina2.component';
+import {ModulodeRutas} from "./routes";
+import { Pagina21Component } from './Componentes/pagina21/pagina21.component';
+import { Pagina22Component } from './Componentes/pagina22/pagina22.component';
+import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +31,19 @@ import { UsuarioComponent } from './Componentes/usuario/usuario.component';
     DescripcionPeliculaComponent,
     PosterPeliculaComponent,
     VotosPeliculaComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    Pagina2Component,
+    Pagina21Component,
+    Pagina22Component,
+    Pagina23Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ModulodeRutas
   ],
   providers: [],
-  bootstrap: [InicioComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
