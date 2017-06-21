@@ -32,6 +32,7 @@ export class UsuarioComponent implements OnInit {
       let rJson = respuesta.json();
       console.log("respuesta json:", rJson);
       //this.actualizarUsuario();
+      this.usuarioborrado.emit();
 
     }, error=>{
       console.log("error: ", error);
