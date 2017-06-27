@@ -16,20 +16,32 @@
 </div>
 </div>
 </div>
+<form (ngSubmit)="crearUsuario(UsuarioFormulario)" #UsuarioFormulario="ngForm" novalidate>
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
         <pre>{{nuevoUsuario | json}}</pre>
+        <div>
         <label class="col-form-label">Nombre Usuario</label>
-        <input type="text" class="form-control" placeholder="nombre de usuario" [(ngModel)]="nuevoUsuario.nombre">
-        <button class="btn btn-info" (click)="crearUsuario()">CREAR</button>
+
+        <input type="text" minlength="5" class="form-control" placeholder="nombre de usuario" name="nombre" required #nombre="ngModel" [(ngModel)]="nuevoUsuario.nombre">
+          <div *ngIf="nombre.errors?.minLength" class="alert alert-danger" role="alert">
+            <strong>Oh snap!</strong> Tienes pinches errores.
+          </div>
+        </div>
+        <div>
+          <br>
+        <button class="btn btn-info" [disabled]="!UsuarioFormulario.valid" type="submit">CREAR</button>
         <button class="btn btn-info" (click)="actualizarUsuario()">ACTUALIZAR LISTA</button>
+          <button class=" btn btn-danger" type="button">CANCELAR</button>
+          <pre>{{nombre.errors | json}} touched: {{nombre.touched}} dirty: {{nombre.dirty}} pristine: {{nombre.pristine}}</pre>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
+</form>
 <div class="container">
   <h1 class="display-2">Bienvenidos</h1>
   <h2>Usuarios del sistema</h2>

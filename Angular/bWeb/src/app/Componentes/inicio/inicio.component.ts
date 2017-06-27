@@ -64,10 +64,11 @@ export class InicioComponent implements OnInit {
       console.log("error: ", error);
     });
   }
-  crearUsuario(){
+  crearUsuario(formulario){
     console.log("ESTO ES CREAR USUARIO");
+    console.log(formulario);
 
-    let usuario:Usuarioclase={
+    /*let usuario:Usuarioclase={
       nombre:this.nuevoUsuario.nombre
     };
     this._http.post("http://localhost:1337/usuario", usuario).subscribe(respuesta=>{
@@ -76,7 +77,7 @@ export class InicioComponent implements OnInit {
       this.actualizarUsuario();
     }, error=>{
       console.log("error: ", error);
-    });
+    });*/
     //this.actualizarUsuario();
   }
 
