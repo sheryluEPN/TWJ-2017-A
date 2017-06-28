@@ -13,7 +13,7 @@ export class InicioComponent implements OnInit {
 
   usuarios: Usuarioclase[]=[];
   nombre: string = "nombresito";
-  nuevoUsuario: Usuarioclase = new Usuarioclase("");
+  nuevoUsuario: Usuarioclase = new Usuarioclase("","");
   arregloUsr=[{
     nombre:"nombrecito1",
     apellido:"apellidito1",

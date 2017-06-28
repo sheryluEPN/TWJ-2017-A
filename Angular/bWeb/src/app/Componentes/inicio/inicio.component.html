@@ -24,18 +24,46 @@
         <pre>{{nuevoUsuario | json}}</pre>
         <div>
         <label class="col-form-label">Nombre Usuario</label>
+          <div
+            *ngIf="nombre.errors?.required&&nombre.touched==true"
 
-        <input type="text" minlength="5" class="form-control" placeholder="nombre de usuario" name="nombre" required #nombre="ngModel" [(ngModel)]="nuevoUsuario.nombre">
-          <div *ngIf="nombre.errors?.minLength" class="alert alert-danger" role="alert">
+            class="alert alert-danger animated bounceIn" role="alert">
+            <strong>¡Peligro!</strong> Este campo es requerido.
+          </div>
+          <div *ngIf="nombre.errors?.minlength&&nombre.touched==true" class="alert alert-danger animated flash" role="alert">
             <strong>Oh snap!</strong> Tienes pinches errores.
           </div>
+          <input type="text" minlength="5" class="form-control" placeholder="nombre de usuario" name="nombre" required  #nombre="ngModel" #nombreTAG [(ngModel)]="nuevoUsuario.nombre">
+
+        </div>
+        <div class="form-group">
+          <div
+            *ngIf="email.errors?.required&&email.touched==true"
+
+            class="alert alert-danger animated rubberBand" role="alert">
+            <strong>Necesitamos un correo!</strong> Este campo es requerido.
+          </div>
+          <div
+            *ngIf="email.errors?.pattern&&email.touched==true"
+
+            class="alert alert-danger animated shake" role="alert">
+            <strong>Ponga bien su correo!</strong> Hay un error de sintaxis.
+          </div>
+          <label>Email:</label>
+          <input type="email" class="form-control"
+                 required
+                 #email="ngModel"
+                 pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$"
+                 placeholder="example@domain.com" name="correo" [(ngModel)]="nuevoUsuario.correo">
         </div>
         <div>
           <br>
         <button class="btn btn-info" [disabled]="!UsuarioFormulario.valid" type="submit">CREAR</button>
         <button class="btn btn-info" (click)="actualizarUsuario()">ACTUALIZAR LISTA</button>
           <button class=" btn btn-danger" type="button">CANCELAR</button>
+
           <pre>{{nombre.errors | json}} touched: {{nombre.touched}} dirty: {{nombre.dirty}} pristine: {{nombre.pristine}}</pre>
+          <pre>{{email.errors | json}} touched: {{email.touched}} dirty: {{email.dirty}} pristine: {{email.pristine}} {{email.pattern}}</pre>
         </div>
       </div>
     </div>

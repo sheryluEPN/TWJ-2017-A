@@ -14,6 +14,9 @@ module.exports = {
     dueniosMascotas:{
       collection:"UsuarioMascota",
       via:"idUsuario"
+    },
+    correo:{
+      type:"string"
     }
 
   }
