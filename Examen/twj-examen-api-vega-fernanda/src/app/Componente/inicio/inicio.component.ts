@@ -34,4 +34,22 @@ export class InicioComponent implements OnInit {
       )
   }
 
+  cargarPeliculas2(){
+    this._http.get("https://twj-2017a-f-v.mybluemix.net/pelicula")
+    //.map(response=>response.json())
+      .subscribe(
+        (response)=>{
+          console.log("Response:", response.json());
+          let respuesta= response.json();
+          this.peliculasList=(respuesta);
+        },
+        (error)=>{
+          console.log("Error:", error);
+        },
+        ()=>{
+          console.log("finally");
+        }
+      )
+  }
+
 }
